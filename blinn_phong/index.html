@@ -53,7 +53,7 @@
                 var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 3 , diameterX: 3}, scene);
 
                 //create a new shader material which uses GLSL
-                var blinnPhongMaterial = new BABYLON.ShaderMaterial("Phong", scene, "./phong",
+                var blinnPhongMaterial = new BABYLON.ShaderMaterial("Phong", scene, "./blinn_phong",
                     {
                         attributes: ["position", "uv", "normal"],
                         uniforms: ["world", "worldView", "worldViewProjection", "view", "projection"]

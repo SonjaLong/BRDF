@@ -28,9 +28,8 @@ void main(void) {
     float ndl = max(0., dot(vNormalW, lightVectorW));
     
     // Specular
-    vec3 ref = reflect(-lightVectorW, vNormalW);
-    ref = normalize(ref);
-    float specComp = max(0., dot(viewDirectionW, ref));
+    vec3 angleW = normalize(viewDirectionW + lightVectorW);
+    float specComp = max(0., dot(vNormalW, angleW));
     specComp = pow(specComp, max(1., 64.)) * 2.;
     
     gl_FragColor = vec4(color * ndl + vec3(specComp), 1.);
