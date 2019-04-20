@@ -53,17 +53,21 @@
                 var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 3 , diameterX: 3}, scene);
 
                 //create a new shader material which uses GLSL
-                var blinnPhongMaterial = new BABYLON.ShaderMaterial("Phong", scene, "./cook_torrance_pbr",
+                var pbrMaterial = new BABYLON.ShaderMaterial("Phong", scene, "./cook_torrance_pbr",
                     {
                         attributes: ["position", "uv", "normal"],
                         uniforms: ["world", "worldView", "worldViewProjection", "view", "projection"]
                     });
                     
                 var diffuseTexture = new BABYLON.Texture("../textures/blue.jpg", scene);
-                blinnPhongMaterial.setVector3("cameraPosition", scene.activeCamera.position);
-                blinnPhongMaterial.setTexture("textureSampler", diffuseTexture);
+                pbrMaterial.setVector3("cameraPosition", scene.activeCamera.position);
+                pbrMaterial.setTexture("albedoMap", diffuseTexture);
+                pbrMaterial.setFloat("metallic", 0.0);
+                pbrMaterial.setFloat("roughness", 1.0);
+                pbrMaterial.setFloat("ao", 0.05);
 
-                sphere.material = blinnPhongMaterial;
+
+                sphere.material = pbrMaterial;
            
                 engine.runRenderLoop(function () {
                     //sphere.rotation.y += 0.05;
