@@ -82,15 +82,15 @@ void main(void) {
     vec3 kS = F;
     vec3 kD = vec3(1.0) - kS;
     kD *= (1.0 - metallic);
-    float NdotL = max(dot(N L), 0.0);
+    float NdotL = max(dot(N,L), 0.0);
 
     vec3 numerator = NDF * G * F;
-    float denominator = 4.0 * max(dot(nrm_base, V), 0.0) * max(dot(nrm_base, L), 0.0);
+    float denominator = 4.0 * max(dot(N, V), 0.0) * max(dot(N, L), 0.0);
     vec3 specular = numerator / max(denominator, 0.001);
         
     Lo = (kD * albedo_base / PI + specular) * radiance * NdotL;
     vec3 ambient = vec3(0.03) * albedo_base * ao;
-    color = ambient + Lo;
+    vec3 color = ambient + Lo;
 
     // HDR tonemapping
     color = color / (color + vec3(1.0));
