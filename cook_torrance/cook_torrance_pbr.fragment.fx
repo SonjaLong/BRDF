@@ -48,13 +48,13 @@ float GeometrySmith(vec3 N, vec3 V, vec3 L, float roughness)
     return ggx1 * ggx2;
 }
 
-vec3 fresnelSchlick(float cosTheta, vec3 F0)
+vec3 fresnelSchlickRoughness(float cosTheta, vec3 F0, float roughness)
 {
-    return F0 + (1.0 - F0) * pow(1.0 - cosTheta, 5.0);
+    return F0 + (max(vec3(roughness), F0) - F0) * pow(1.0 - cosTheta, 5.0);
 } 
 void main(void) {
     vec3 lightColor  = vec3(100., 100., 100.);
-    vec3 lightPosition = vec3(10.,0.,-5.);
+    vec3 lightPosition = vec3(10.,0.,5.);
     vec3 vPositionW = vec3(world * vec4(vPosition, 1.0));
     vec3 N = normalize(vec3(world * vec4(vNormal, 0.0)));
     vec3 V = normalize(cameraPosition - vPositionW);
@@ -73,8 +73,7 @@ void main(void) {
     vec3 F0 = vec3(0.04); 
     F0 = mix(F0, albedo_base, metallic);
     vec3 Lo = vec3(0.0);
-    vec3 F = fresnelSchlick(max(dot(H, V), 0.0), F0);
-    F = F * 0.5;
+    vec3 F = fresnelSchlickRoughness(max(dot(H, V), 0.0), F0, roughness);
     float NDF = DistributionGGX(N, H, roughness);       
     float G = GeometrySmith(N, V, L, roughness);
 
@@ -97,5 +96,5 @@ void main(void) {
     // gamma correct
     color = pow(color, vec3(1.0/2.2)); 
     
-    gl_FragColor = vec4(color, 1.);
+    gl_FragColor = vec4(F, 1.);
 }

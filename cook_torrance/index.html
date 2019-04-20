@@ -44,7 +44,7 @@
                 var canvas = document.getElementById("renderCanvas");
                 var engine = new BABYLON.Engine(canvas, false);             
                 var scene = new BABYLON.Scene(engine);
-                scene.clearColor = new BABYLON.Color3(0.9,0.9,0.9);
+                scene.clearColor = new BABYLON.Color3(0.1,0.1,0.1);
                 var camera = new BABYLON.ArcRotateCamera("Camera", 0, Math.PI / 2, 10, BABYLON.Vector3.Zero(), scene);
                 camera.attachControl(canvas);
                 camera.lowerRadiusLimit = camera.radius = 6.0;
@@ -62,8 +62,8 @@
                 var diffuseTexture = new BABYLON.Texture("../textures/blue.jpg", scene);
                 pbrMaterial.setVector3("cameraPosition", scene.activeCamera.position);
                 pbrMaterial.setTexture("albedoMap", diffuseTexture);
-                pbrMaterial.setFloat("metallic", 1.0);
-                pbrMaterial.setFloat("roughness", 0.4);
+                pbrMaterial.setFloat("metallic", 0.0);
+                pbrMaterial.setFloat("roughness", 1.0);
                 pbrMaterial.setFloat("ao", 0.05);
 
 
