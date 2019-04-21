@@ -3,10 +3,13 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Babylon.js</title>
-        <script src="https://cdn.babylonjs.com/babylon.js"></script>
-        <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
-        <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
-    <script src="index.js"></script>
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://preview.babylonjs.com/babylon.js"></script>
+    <script src="https://preview.babylonjs.com/gui/babylon.gui.js"></script>
+    <script src="https://preview.babylonjs.com/gui/babylon.gui.min.js"></script>
+    <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+    <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
+    
     <style>
         html, body {
             width: 100%;
@@ -49,10 +52,18 @@
                 camera.attachControl(canvas);
                 camera.lowerRadiusLimit = camera.radius = 7.5;
 
+                //UIs
+                var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+                var text1 = new BABYLON.GUI.TextBlock();
+                text1.text = "Hello world";
+                text1.color = "white";
+                text1.fontSize = 24;
+                advancedTexture.addControl(text1);
+
                 //Normal distribution function
                 {
                 //sphere (1,1)
-                var sphere11 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere11 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere11.position = new BABYLON.Vector3(-5, 3, -7);
 
                 var pbrMaterial11 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -67,7 +78,7 @@
                 sphere11.material = pbrMaterial11;
 
                 //sphere (1,2)
-                var sphere12 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere12 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere12.position = new BABYLON.Vector3(-5, 3, -5.5);
 
                 var pbrMaterial12 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -81,7 +92,7 @@
                 sphere12.material = pbrMaterial12;
 
                 //sphere (1,3)
-                var sphere13 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere13 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere13.position = new BABYLON.Vector3(-5, 3, -4);
 
                 var pbrMaterial13 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -95,7 +106,7 @@
                 sphere13.material = pbrMaterial13;
 
                 //sphere (1,4)
-                var sphere14 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere14 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere14.position = new BABYLON.Vector3(-5, 3, -2.5);
 
                 var pbrMaterial14 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -109,7 +120,7 @@
                 sphere14.material = pbrMaterial14;
 
                 //sphere (1,5)
-                var sphere15 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere15 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere15.position = new BABYLON.Vector3(-5, 3, -1);
 
                 var pbrMaterial15 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -123,7 +134,7 @@
                 sphere15.material = pbrMaterial15;
 
                 //sphere (1,6)
-                var sphere16 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere16 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere16.position = new BABYLON.Vector3(-5, 3, 0.5);
 
                 var pbrMaterial16 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -137,7 +148,7 @@
                 sphere16.material = pbrMaterial16;
 
                 //sphere (1,7)
-                var sphere17 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere17 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere17.position = new BABYLON.Vector3(-5, 3, 2);
 
                 var pbrMaterial17 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -151,7 +162,7 @@
                 sphere17.material = pbrMaterial17;
 
                 //sphere (1,8)
-                var sphere18 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere18 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere18.position = new BABYLON.Vector3(-5, 3, 3.5);
 
                 var pbrMaterial18 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -165,7 +176,7 @@
                 sphere18.material = pbrMaterial18;
 
                 //sphere (1,9)
-                var sphere19 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere19 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere19.position = new BABYLON.Vector3(-5, 3, 5);
 
                 var pbrMaterial19 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -179,7 +190,7 @@
                 sphere19.material = pbrMaterial19;
 
                 //sphere (1,10)
-                var sphere110 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere110 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere110.position = new BABYLON.Vector3(-5, 3, 6.5);
 
                 var pbrMaterial110 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -196,7 +207,7 @@
                 //Geometry function
                 {
                 //sphere (2,1)
-                var sphere21 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere21 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere21.position = new BABYLON.Vector3(-5, 0.7, -7);
 
                 var pbrMaterial21 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -210,7 +221,7 @@
                 sphere21.material = pbrMaterial21;
 
                 //sphere (1,2)
-                var sphere22 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere22 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere22.position = new BABYLON.Vector3(-5, 0.7, -5.5);
 
                 var pbrMaterial22 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -224,7 +235,7 @@
                 sphere22.material = pbrMaterial22;
 
                 //sphere (2,3)
-                var sphere23 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere23 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere23.position = new BABYLON.Vector3(-5, 0.7, -4);
 
                 var pbrMaterial23 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -238,7 +249,7 @@
                 sphere23.material = pbrMaterial23;
 
                 //sphere (2,4)
-                var sphere24 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere24 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere24.position = new BABYLON.Vector3(-5, 0.7, -2.5);
 
                 var pbrMaterial24 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -252,7 +263,7 @@
                 sphere24.material = pbrMaterial24;
 
                 //sphere (2,5)
-                var sphere25 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere25 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere25.position = new BABYLON.Vector3(-5, 0.7, -1);
 
                 var pbrMaterial25 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -266,7 +277,7 @@
                 sphere25.material = pbrMaterial25;
 
                 //sphere (2,6)
-                var sphere26 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere26 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere26.position = new BABYLON.Vector3(-5, 0.7, 0.5);
 
                 var pbrMaterial26 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -280,7 +291,7 @@
                 sphere26.material = pbrMaterial26;
 
                 //sphere (2,7)
-                var sphere27 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere27 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere27.position = new BABYLON.Vector3(-5, 0.7, 2);
 
                 var pbrMaterial27 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -294,7 +305,7 @@
                 sphere27.material = pbrMaterial27;
 
                 //sphere (2,8)
-                var sphere28 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere28 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere28.position = new BABYLON.Vector3(-5, 0.7, 3.5);
 
                 var pbrMaterial28 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -308,7 +319,7 @@
                 sphere28.material = pbrMaterial28;
 
                 //sphere (2,9)
-                var sphere29 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere29 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere29.position = new BABYLON.Vector3(-5, 0.7, 5);
 
                 var pbrMaterial29 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -322,7 +333,7 @@
                 sphere29.material = pbrMaterial29;
 
                 //sphere (2,10)
-                var sphere210 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere210 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere210.position = new BABYLON.Vector3(-5, 0.7, 6.5);
 
                 var pbrMaterial210 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -339,7 +350,7 @@
                 //Fresnel equation
                 {
                 //sphere (3,1)
-                var sphere31 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere31 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere31.position = new BABYLON.Vector3(-5, -1.6, -7);
 
                 var pbrMaterial31 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -353,7 +364,7 @@
                 sphere31.material = pbrMaterial31;
 
                 //sphere (3,2)
-                var sphere32 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere32 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere32.position = new BABYLON.Vector3(-5, -1.6, -5.5);
 
                 var pbrMaterial32 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -367,7 +378,7 @@
                 sphere32.material = pbrMaterial32;
 
                 //sphere (3,3)
-                var sphere33 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere33 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere33.position = new BABYLON.Vector3(-5, -1.6, -4);
 
                 var pbrMaterial33 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -381,7 +392,7 @@
                 sphere33.material = pbrMaterial33;
 
                 //sphere (3,4)
-                var sphere34 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere34 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere34.position = new BABYLON.Vector3(-5, -1.6, -2.5);
 
                 var pbrMaterial34 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -395,7 +406,7 @@
                 sphere34.material = pbrMaterial34;
 
                 //sphere (3,5)
-                var sphere35 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere35 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere35.position = new BABYLON.Vector3(-5, -1.6, -1);
 
                 var pbrMaterial35 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -409,7 +420,7 @@
                 sphere35.material = pbrMaterial35;
 
                 //sphere (3,6)
-                var sphere36 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere36 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere36.position = new BABYLON.Vector3(-5, -1.6, 0.5);
 
                 var pbrMaterial36 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -423,7 +434,7 @@
                 sphere36.material = pbrMaterial36;
 
                 //sphere (3,7)
-                var sphere37 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere37 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere37.position = new BABYLON.Vector3(-5, -1.6, 2);
 
                 var pbrMaterial37 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -437,7 +448,7 @@
                 sphere37.material = pbrMaterial37;
 
                 //sphere (3,8)
-                var sphere38 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere38 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere38.position = new BABYLON.Vector3(-5, -1.6, 3.5);
 
                 var pbrMaterial38 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -451,7 +462,7 @@
                 sphere38.material = pbrMaterial38;
 
                 //sphere (3,9)
-                var sphere39 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere39 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere39.position = new BABYLON.Vector3(-5, -1.6, 5);
 
                 var pbrMaterial39 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
@@ -465,7 +476,7 @@
                 sphere39.material = pbrMaterial39;
 
                 //sphere (3,10)
-                var sphere310 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                var sphere310 = BABYLON.Mesh.CreateSphere("sphere", 30, 1, scene);
                 sphere310.position = new BABYLON.Vector3(-5, -1.6, 6.5);
 
                 var pbrMaterial310 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
