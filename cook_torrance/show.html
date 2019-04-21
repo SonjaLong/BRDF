@@ -30,7 +30,7 @@
             position: absolute;
             right: 20px;
             top: 20px;
-            color: rgb(108, 0, 158);
+            color: rgb(241, 101, 211);
             cursor: default;
         }
     </style>
@@ -50,15 +50,49 @@
                 scene.clearColor = new BABYLON.Color3(0.2,0.2,0.2);
                 var camera = new BABYLON.ArcRotateCamera("Camera", 0, Math.PI / 2, 10, BABYLON.Vector3.Zero(), scene);
                 camera.attachControl(canvas);
-                camera.lowerRadiusLimit = camera.radius = 7.5;
+                camera.lowerRadiusLimit = camera.upperRadiusLimit = camera.radius = 7.5;
 
                 //UIs
                 var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
                 var text1 = new BABYLON.GUI.TextBlock();
-                text1.text = "Hello world";
-                text1.color = "white";
+                text1.width = "500px";
+                text1.height = "40px";
+                text1.left = "30px";
+                text1.top = "70px";
+                text1.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+                text1.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
+                text1.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+                text1.text = "Normal Distribution Function";
+                text1.color = "rgb(241, 101, 211)";
                 text1.fontSize = 24;
+
+                var text2 = new BABYLON.GUI.TextBlock();
+                text2.width = "500px";
+                text2.height = "40px";
+                text2.left = "30px";
+                text2.top = "220px";
+                text2.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+                text2.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
+                text2.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+                text2.text = "Geometry Function";
+                text2.color = "rgb(241, 101, 211)";
+                text2.fontSize = 24;
+
+                var text3 = new BABYLON.GUI.TextBlock();
+                text3.width = "500px";
+                text3.height = "40px";
+                text3.left = "30px";
+                text3.top = "370px";
+                text3.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+                text3.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
+                text3.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+                text3.text = "Fresnel Equation";
+                text3.color = "rgb(241, 101, 211)";
+                text3.fontSize = 24;
+
                 advancedTexture.addControl(text1);
+                advancedTexture.addControl(text2);
+                advancedTexture.addControl(text3);
 
                 //Normal distribution function
                 {
