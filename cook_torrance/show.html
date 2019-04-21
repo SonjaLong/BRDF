@@ -50,6 +50,7 @@
                 camera.lowerRadiusLimit = camera.radius = 7.5;
 
                 //Normal distribution function
+                {
                 //sphere (1,1)
                 var sphere11 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
                 sphere11.position = new BABYLON.Vector3(-5, 3, -7);
@@ -190,8 +191,10 @@
                 pbrMaterial110.setFloat("roughness", 1.0);
                 pbrMaterial110.setInt("para", 1);
                 sphere110.material = pbrMaterial110;
+                }
 
                 //Geometry function
+                {
                 //sphere (2,1)
                 var sphere21 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
                 sphere21.position = new BABYLON.Vector3(-5, 0.7, -7);
@@ -331,8 +334,150 @@
                 pbrMaterial210.setFloat("roughness", 1.0);
                 pbrMaterial210.setInt("para", 2);
                 sphere210.material = pbrMaterial210;
-           
+                }
 
+                //Fresnel equation
+                {
+                //sphere (3,1)
+                var sphere31 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                sphere31.position = new BABYLON.Vector3(-5, -1.6, -7);
+
+                var pbrMaterial31 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
+                    {
+                        attributes: ["position", "uv", "normal"],
+                        uniforms: ["world", "worldView", "worldViewProjection", "view", "projection"]
+                    });               
+                pbrMaterial31.setVector3("cameraPosition", scene.activeCamera.position);
+                pbrMaterial31.setFloat("roughness", 0.1);
+                pbrMaterial31.setInt("para", 3);
+                sphere31.material = pbrMaterial31;
+
+                //sphere (3,2)
+                var sphere32 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                sphere32.position = new BABYLON.Vector3(-5, -1.6, -5.5);
+
+                var pbrMaterial32 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
+                    {
+                        attributes: ["position", "uv", "normal"],
+                        uniforms: ["world", "worldView", "worldViewProjection", "view", "projection"]
+                    });               
+                pbrMaterial32.setVector3("cameraPosition", scene.activeCamera.position);
+                pbrMaterial32.setFloat("roughness", 0.2);
+                pbrMaterial32.setInt("para", 3);
+                sphere32.material = pbrMaterial32;
+
+                //sphere (3,3)
+                var sphere33 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                sphere33.position = new BABYLON.Vector3(-5, -1.6, -4);
+
+                var pbrMaterial33 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
+                    {
+                        attributes: ["position", "uv", "normal"],
+                        uniforms: ["world", "worldView", "worldViewProjection", "view", "projection"]
+                    });               
+                pbrMaterial33.setVector3("cameraPosition", scene.activeCamera.position);
+                pbrMaterial33.setFloat("roughness", 0.3);
+                pbrMaterial33.setInt("para", 3);
+                sphere33.material = pbrMaterial33;
+
+                //sphere (3,4)
+                var sphere34 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                sphere34.position = new BABYLON.Vector3(-5, -1.6, -2.5);
+
+                var pbrMaterial34 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
+                    {
+                        attributes: ["position", "uv", "normal"],
+                        uniforms: ["world", "worldView", "worldViewProjection", "view", "projection"]
+                    });               
+                pbrMaterial34.setVector3("cameraPosition", scene.activeCamera.position);
+                pbrMaterial34.setFloat("roughness", 0.4);
+                pbrMaterial34.setInt("para", 3);
+                sphere34.material = pbrMaterial34;
+
+                //sphere (3,5)
+                var sphere35 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                sphere35.position = new BABYLON.Vector3(-5, -1.6, -1);
+
+                var pbrMaterial35 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
+                    {
+                        attributes: ["position", "uv", "normal"],
+                        uniforms: ["world", "worldView", "worldViewProjection", "view", "projection"]
+                    });               
+                pbrMaterial35.setVector3("cameraPosition", scene.activeCamera.position);
+                pbrMaterial35.setFloat("roughness", 0.5);
+                pbrMaterial35.setInt("para", 3);
+                sphere35.material = pbrMaterial35;
+
+                //sphere (3,6)
+                var sphere36 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                sphere36.position = new BABYLON.Vector3(-5, -1.6, 0.5);
+
+                var pbrMaterial36 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
+                    {
+                        attributes: ["position", "uv", "normal"],
+                        uniforms: ["world", "worldView", "worldViewProjection", "view", "projection"]
+                    });               
+                pbrMaterial36.setVector3("cameraPosition", scene.activeCamera.position);
+                pbrMaterial36.setFloat("roughness", 0.6);
+                pbrMaterial36.setInt("para", 3);
+                sphere36.material = pbrMaterial36;
+
+                //sphere (3,7)
+                var sphere37 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                sphere37.position = new BABYLON.Vector3(-5, -1.6, 2);
+
+                var pbrMaterial37 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
+                    {
+                        attributes: ["position", "uv", "normal"],
+                        uniforms: ["world", "worldView", "worldViewProjection", "view", "projection"]
+                    });               
+                pbrMaterial37.setVector3("cameraPosition", scene.activeCamera.position);
+                pbrMaterial37.setFloat("roughness", 0.7);
+                pbrMaterial37.setInt("para", 3);
+                sphere37.material = pbrMaterial37;
+
+                //sphere (3,8)
+                var sphere38 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                sphere38.position = new BABYLON.Vector3(-5, -1.6, 3.5);
+
+                var pbrMaterial38 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
+                    {
+                        attributes: ["position", "uv", "normal"],
+                        uniforms: ["world", "worldView", "worldViewProjection", "view", "projection"]
+                    });               
+                pbrMaterial38.setVector3("cameraPosition", scene.activeCamera.position);
+                pbrMaterial38.setFloat("roughness", 0.8);
+                pbrMaterial38.setInt("para", 3);
+                sphere38.material = pbrMaterial38;
+
+                //sphere (3,9)
+                var sphere39 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                sphere39.position = new BABYLON.Vector3(-5, -1.6, 5);
+
+                var pbrMaterial39 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
+                    {
+                        attributes: ["position", "uv", "normal"],
+                        uniforms: ["world", "worldView", "worldViewProjection", "view", "projection"]
+                    });               
+                pbrMaterial39.setVector3("cameraPosition", scene.activeCamera.position);
+                pbrMaterial39.setFloat("roughness", 0.9);
+                pbrMaterial39.setInt("para", 3);
+                sphere39.material = pbrMaterial39;
+
+                //sphere (3,10)
+                var sphere310 = BABYLON.MeshBuilder.CreateSphere("sphere", 3, scene);
+                sphere310.position = new BABYLON.Vector3(-5, -1.6, 6.5);
+
+                var pbrMaterial310 = new BABYLON.ShaderMaterial("Phong", scene, "./show",
+                    {
+                        attributes: ["position", "uv", "normal"],
+                        uniforms: ["world", "worldView", "worldViewProjection", "view", "projection"]
+                    });               
+                pbrMaterial310.setVector3("cameraPosition", scene.activeCamera.position);
+                pbrMaterial310.setFloat("roughness", 1.0);
+                pbrMaterial310.setInt("para", 3);
+                sphere310.material = pbrMaterial310;
+                }
 
 
 
